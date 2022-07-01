@@ -66,7 +66,7 @@ func SendCode(toUserEmail, code string) error {
 	e.From = "Get <gcloud2yesmore@163.com>"
 	e.To = []string{toUserEmail}
 	e.Subject = "欢迎注册 Chant :>"
-	e.HTML = []byte("您正在注册 Chant, 请查收验证码: <b>" + code + "</b>, 确保是本人操作哦~")
+	e.HTML = []byte("您正在注册Chant, 请查收验证码: <b>" + code + "</b>, 确保是本人操作哦~")
 	return e.SendWithTLS("smtp.163.com:465",
 		smtp.PlainAuth("", "gcloud2yesmore@163.com", define.MailPassword, "smtp.163.com"),
 		&tls.Config{InsecureSkipVerify: true, ServerName: "smtp.163.com"})
